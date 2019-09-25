@@ -1,4 +1,7 @@
 import React from 'react'
+import './style.css'
+import XiaojiejieItem from './XiaojiejieItem'
+
 const Component = React.Component
 const Fragment = React.Fragment
 
@@ -14,13 +17,18 @@ class Xiaojiejie extends Component {
     return (
       <Fragment>
         <div>
-          <input value={this.state.inputValue} onChange={this.inputChange.bind(this)} type="text"/>
+          {/*注释*/}
+          <input value={this.state.inputValue} onChange={this.inputChange.bind(this)} className="input" type="text"/>
           <button onClick={this.addList.bind(this)}>增加技术栈</button>
         </div>
         <ul>
           {
             this.state.list.map((item, index) => {
-              return <li key={index + item}>{item}</li>
+              return (
+                <div>
+                  <XiaojiejieItem />
+                </div>
+              )
             })
           }
         </ul>
@@ -38,6 +46,14 @@ class Xiaojiejie extends Component {
     this.setState({
       list: [...this.state.list, this.state.inputValue],
       inputValue: ''
+    })
+  }
+  deleteItem(index) {
+    // 这里重点：react 不允许直接对state数据进行改变，必须通过其他变量赋值。
+    let list = this.state.list;
+    list.splice(index, 1);
+    this.setState({
+      list: list
     })
   }
 }
