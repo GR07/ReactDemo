@@ -1,10 +1,17 @@
 import React, { Component} from 'react'
 
 class XiaojiejieItem extends Component {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
   render() {
     return (
-      <li>小姐姐</li>
+      <li onClick={this.handleClick}>{ this.props.content }</li>
     )
+  }
+  handleClick() {
+    this.props.deleteItem(this.props.index)
   }
 }
 

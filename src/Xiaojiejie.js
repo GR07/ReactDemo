@@ -12,22 +12,23 @@ class Xiaojiejie extends Component {
       inputValue: '',
       list: ['js', 'css']
     }
+    this.inputChange = this.inputChange.bind(this)
+    this.addList = this.addList.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
   }
   render() {
     return (
       <Fragment>
         <div>
           {/*注释*/}
-          <input value={this.state.inputValue} onChange={this.inputChange.bind(this)} className="input" type="text"/>
-          <button onClick={this.addList.bind(this)}>增加技术栈</button>
+          <input value={this.state.inputValue} onChange={this.inputChange} className="input" type="text"/>
+          <button onClick={this.addList}>增加技术栈</button>
         </div>
         <ul>
           {
             this.state.list.map((item, index) => {
               return (
-                <div>
-                  <XiaojiejieItem />
-                </div>
+                  <XiaojiejieItem content={item} index={index} deleteItem={this.deleteItem} key={index+item} />
               )
             })
           }
