@@ -21,10 +21,10 @@ class Xiaojiejie extends Component {
       <Fragment>
         <div>
           {/*注释*/}
-          <input value={this.state.inputValue} onChange={this.inputChange} className="input" type="text"/>
+          <input value={this.state.inputValue} ref={(input) => {this.input = input}} onChange={this.inputChange} className="input" type="text"/>
           <button onClick={this.addList}>增加技术栈</button>
         </div>
-        <ul>
+        <ul ref={(ul) => {this.ul = ul}}>
           {
             this.state.list.map((item, index) => {
               return (
@@ -36,10 +36,12 @@ class Xiaojiejie extends Component {
       </Fragment>
     )
   }
-  inputChange(e) {
-    console.log(e.target.value)
+  inputChange() {
+    // setState 是个异步方法，所以官方支持一个回调函数
     this.setState({
-      inputValue: e.target.value
+      inputValue: this.input.value
+    }, () => {
+      console.log(this.ul.querySelectorAll('li').length)
     })
   }
   addList() {
