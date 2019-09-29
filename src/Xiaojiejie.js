@@ -41,7 +41,7 @@ class Xiaojiejie extends Component {
     this.setState({
       inputValue: this.input.value
     }, () => {
-      console.log(this.ul.querySelectorAll('li').length)
+      // console.log(this.ul.querySelectorAll('li').length)
     })
   }
   addList() {

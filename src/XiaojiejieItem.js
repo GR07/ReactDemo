@@ -6,7 +6,21 @@ class XiaojiejieItem extends Component {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
+
+  // 只有当修改父组件传递props的时候子组件才会刷新dom
+  // nextProps父组件即将传过来的props属性
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    if (nextProps.content !== this.props.content) {
+      return true;
+    } else {
+      return false;
+    }
+    // 以上优雅写法
+    // return nextProps.content === this.props.content;
+  }
+
   render() {
+    console.log('子组件在渲染 render函数在执行')
     return (
       <li onClick={this.handleClick}>{this.props.avname}为你服务 - { this.props.content }</li>
     )
