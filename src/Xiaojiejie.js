@@ -3,6 +3,7 @@ import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
 
 const Component = React.Component
+// 外层容器
 const Fragment = React.Fragment
 
 class Xiaojiejie extends Component {
@@ -45,9 +46,12 @@ class Xiaojiejie extends Component {
     })
   }
   addList() {
+    console.log(this)
     if (!this.state.inputValue) return;
     this.setState({
+      // 给list赋值
       list: [...this.state.list, this.state.inputValue],
+      // 初始化inputValue为空
       inputValue: ''
     })
   }
