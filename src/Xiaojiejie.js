@@ -1,6 +1,8 @@
 import React from 'react'
+import axios from 'axios'
 import './style.css'
 import XiaojiejieItem from './XiaojiejieItem'
+import Boss from './Boss'
 
 const Component = React.Component
 // 外层容器
@@ -16,6 +18,11 @@ class Xiaojiejie extends Component {
     this.inputChange = this.inputChange.bind(this)
     this.addList = this.addList.bind(this)
     this.deleteItem = this.deleteItem.bind(this)
+  }
+  componentDidMount() {
+    axios.post('https://web-api.juejin.im/v3/web/wbbr/bgeda')
+      .then((res) => {console.log(`获取数据成功：${res}`)})
+      .catch((error) => {console.log(`获取数据失败`)})
   }
   render() {
     return (
@@ -34,6 +41,7 @@ class Xiaojiejie extends Component {
             })
           }
         </ul>
+        <Boss />
       </Fragment>
     )
   }

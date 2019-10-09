@@ -1,3 +1,57 @@
 .input {
     border: 3px solid #ae7000;
 }
+
+/*用关键帧实现动画*/
+.show {
+    animation: show-item 2s ease-in forwards;
+}
+
+.hide {
+    animation: hide-item 2s ease-in forwards;
+}
+@keyframes show-item {
+    0% {
+        opacity: 0;
+        color: yellow;
+    }
+    50% {
+        opacity: 0.5;
+        color: red;
+    }
+    100% {
+        opacity: 1;
+        color: green;
+    }
+}
+@keyframes hide-item {
+    0% {
+        opacity: 1;
+        color: yellow;
+    }
+    50% {
+        opacity: 0.5;
+        color: red;
+    }
+    100% {
+        opacity: 0;
+        color: green;
+    }
+}
+
+
+/*用transition-group实现动画*/
+
+/*开始时候*/
+.boss-text-enter {opacity: 0;}
+/*进行后*/
+.boss-text-enter-active {opacity: 1; transition: opacity 2000ms}
+/*结束时候*/
+.boss-text-enter-done {opacity: 1;}
+
+/*开始时候*/
+.boss-text-exit {opacity: 1;}
+/*进行后*/
+.boss-text-exit-active {opacity: 1; transition: opacity 2000ms}
+/*结束时候*/
+.boss-text-exit-done {opacity: 0;}
