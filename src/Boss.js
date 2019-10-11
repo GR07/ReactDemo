@@ -13,7 +13,7 @@ class Boss extends Component {
   render() {
     return (
       <div>
-        {/*<div className={this.state.isShow? 'show' : 'hide' }>Boss - 阿里 腾讯 百度</div>*/}
+        {/*<div className={this.state.isShow? 'show' : 'hide' }>用关键帧动画实现 ---- Boss - 阿里 腾讯 百度</div>*/}
         <CSSTransition in={this.state.isShow} timeout={2000} classNames="boss-text"><div>用CSSTransition实现 ---- Boss - 阿里 腾讯 百度</div></CSSTransition>
         <div><button onClick={this.toToggole}>显示</button></div>
       </div>
