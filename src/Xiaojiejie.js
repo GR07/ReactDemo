@@ -7,9 +7,13 @@ import Boss from './Boss'
 const Component = React.Component
 // 外层容器
 const Fragment = React.Fragment
-
+// 继承了react Component这个基类，也就继承这个react的基类，才能有render(), 生命周期等方法可以使用。
 class Xiaojiejie extends Component {
+  // constructor()用来做一些组件的初始化工作，如定义this.state的初始内容
   constructor(props) {
+    // super(props)用来调用基类的构造方法 constructor()
+    // 也将父组件的props注入给子组件
+    // 组件中props只读不可变，state可变
     super(props)
     this.state = {
       inputValue: '',
