@@ -50,10 +50,11 @@ class Xiaojiejie extends Component {
     )
   }
   inputChange() {
-    // setState 是个异步方法，所以官方支持一个回调函数
+    // setState 是个异步方法，所以官方支持一个回调函数，这个回调函数就是dom更新后执行的回调
     this.setState({
       inputValue: this.input.value
     }, () => {
+      // dom更新后执行的回调
       // console.log(this.ul.querySelectorAll('li').length)
     })
   }

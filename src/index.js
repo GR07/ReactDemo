@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Xiaojiejie from './Xiaojiejie';
-// js 和 xml 的结合，这就是jsx语法
-// 遇到 < 当成html解析 遇到 { 当成js解析
-ReactDOM.render(<Xiaojiejie />, document.getElementById('root'));
+import App from './App';
+// react 里面 自定义组件必须使用大写字母开头
+ReactDOM.render(<Xiaojiejie />, document.getElementById('root')); // 挂载
